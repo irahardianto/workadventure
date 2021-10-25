@@ -29,7 +29,6 @@ import type {
 } from "./ui/TriggerActionMessageEvent";
 import { isMessageReferenceEvent, isTriggerActionMessageEvent } from "./ui/TriggerActionMessageEvent";
 import type { MenuRegisterEvent, UnregisterMenuEvent } from "./ui/MenuRegisterEvent";
-import { isPlayerPropertyEvent } from "./PlayerPropertyEvent";
 
 export interface TypedMessageEvent<T> extends MessageEvent {
     data: T;
@@ -147,14 +146,6 @@ export const iframeQueryMapTypeGuards = {
     },
     createEmbeddedWebsite: {
         query: isCreateEmbeddedWebsiteEvent,
-        answer: tg.isUndefined,
-    },
-    getPlayerProperty: {
-        query: tg.isString,
-        answer: isPlayerPropertyEvent,
-    },
-    setPlayerProperty: {
-        query: isPlayerPropertyEvent,
         answer: tg.isUndefined,
     },
 };
