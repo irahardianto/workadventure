@@ -1259,6 +1259,14 @@ ${escapedMessage}
         iframeListener.registerAnswerer("removeActionMessage", (message) => {
             layoutManagerActionStore.removeAction(message.uuid);
         });
+
+
+        iframeListener.registerAnswerer("getPlayerPosition", () => {
+            return {
+                x: this.CurrentPlayer.x,
+                y: this.CurrentPlayer.y,
+            };
+        });
     }
 
     private setPropertyLayer(
